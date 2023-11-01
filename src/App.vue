@@ -15,9 +15,9 @@
 </script>
 
 <template>
-  <HelloWorld :user ="user"/>
-  <input type="text" v-model="user.name" @input="display"/>
-  <input type="text" v-model="user.age" @input="display"/>
+  <HelloWorld>
+    <p>{{ user.name }}</p>
+  </HelloWorld>
   <div v-if="user.age > 15">
     Vous êtes majeur !
   </div>
