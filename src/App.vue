@@ -1,21 +1,24 @@
 <script setup>
-  import { computed, ref } from 'vue'
+  import { watch, ref } from 'vue'
   import HelloWorld from '@/components/HelloWorld.vue'
 
-  const name = ref('Sushi');
+  const name = ref('Rik');
   const age = ref(34);
-  // Création d'une sentence, c'est une valeur calculer
-  // de cette maniere si age ou name change la sentence
-  // est actualisé. On utlisie computed.
-  const sentence = computed(() => {
-    return `Bonjour je suis ${name.value} et j'ai ${age.value}`;
-  });
+  // Watcher > si la variable est modifier
+  // J'ai accès a
+  // son ancienne valeur et ça nouvelle valeur
+  // je vais pouvoir executer du code
+  watch(name, (newValue, oldValue) => {
+    console.log(newValue, oldValue);
+  })
 
 </script>
 
 <template>
   <HelloWorld/>
   <span>{{ sentence }}</span>
+  <input v-model="name"/>
+  <input v-model="age"/>
 </template>
 
 <style>
