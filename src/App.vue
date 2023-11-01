@@ -2,23 +2,15 @@
   import { watch, ref } from 'vue'
   import HelloWorld from '@/components/HelloWorld.vue'
 
-  const name = ref('Rik');
-  const age = ref(34);
-  // Watcher > si la variable est modifier
-  // J'ai accès a
-  // son ancienne valeur et ça nouvelle valeur
-  // je vais pouvoir executer du code
-  watch(name, (newValue, oldValue) => {
-    console.log(newValue, oldValue);
-  })
-
+  const display = (name) => {
+    console.log('App vue :' + name)
+  }
 </script>
 
 <template>
-  <HelloWorld/>
-  <span>{{ sentence }}</span>
-  <input v-model="name"/>
-  <input v-model="age"/>
+  <HelloWorld
+  @update-name="name => display(name)"
+  />
 </template>
 
 <style>
