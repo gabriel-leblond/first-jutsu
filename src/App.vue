@@ -1,19 +1,22 @@
 <script setup>
   import { ref } from 'vue'
+  // import d'un component enfant
   import HelloWorld from '@/components/HelloWorld.vue'
-  // const subTitle = "Je suis le sous titre du parent"
-  // je crée une variable réactive avec ref
-  const name = ref("");
-  const age = ref("");
+
+  const user = ref({
+    name: 'sushi',
+    age: 33,
+  });
+
+  // const display = () => {
+  //   console.log(name.value);
+  // };
 </script>
 
 <template>
-  <!-- Je passe subTitle en props a l'enfant HelloWorld.vue -->
-  <!-- si j'acualise au dessus ma variable elle est maintenant -->
-  <!-- lié dynamiquement a l'enfant grâce au v-bind -->
-  <HelloWorld :name ="name" :age ="age"/>
-  <input type="text" v-model="name" />
-  <input type="text" v-model="age" />
+  <HelloWorld :user ="user"/>
+  <input type="text" v-model="user.name" />
+  <input type="text" v-model="user.age" />
 </template>
 
 <style>
