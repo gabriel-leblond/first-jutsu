@@ -5,18 +5,26 @@
 
   const user = ref({
     name: 'sushi',
-    age: 33,
+    age: 10,
   });
 
-  // const display = () => {
-  //   console.log(name.value);
-  // };
+  const display = () => {
+    console.log(user.value)
+  }
+
 </script>
 
 <template>
   <HelloWorld :user ="user"/>
-  <input type="text" v-model="user.name" />
-  <input type="text" v-model="user.age" />
+  <input type="text" v-model="user.name" @input="display"/>
+  <input type="text" v-model="user.age" @input="display"/>
+  <div v-if="majeur > 15">
+    Vous êtes majeur !
+  </div>
+  <div v-else>
+    Vous êtes n'êtes pas majeur !
+  </div>
+
 </template>
 
 <style>
