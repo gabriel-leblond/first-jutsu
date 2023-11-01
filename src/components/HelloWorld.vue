@@ -4,7 +4,8 @@
 
 <template>
   <h1> Hello Wolrd</h1>
-    <slot> </slot>
+    <slot name="name"> </slot>
+    <slot name="age"> </slot>
 </template>
 
 <style>

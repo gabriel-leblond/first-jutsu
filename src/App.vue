@@ -16,7 +16,12 @@
 
 <template>
   <HelloWorld>
-    <p>{{ user.name }}</p>
+    <template v-slot:name>
+      <p>{{ user.name }}</p>
+    </template>
+    <template v-slot:age>
+      <p>{{ user.age }}</p>
+    </template>
   </HelloWorld>
   <div v-if="user.age > 15">
     Vous êtes majeur !
